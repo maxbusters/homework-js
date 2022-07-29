@@ -156,170 +156,170 @@
     5)Скорочення об'єкта-дробу.
  */
 
-let fraction = {
-    num: 0,
-    denum: 1,
-    validateNumber: function (number) {
-        if (isNaN(parseInt(number))) {
-            return false;
-        } else {
-            return true;
-        }
-    },
-    validateFraction: function (num, denum, isDivide = false) {
-        if (isDivide) {
-            if (this.validateNumber(num) && this.validateNumber(denum) && num != 0) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-        if (this.validateNumber(num) && this.validateNumber(denum) && denum != 0) {
-            return true;
-        } else {
-            return false;
-        }
-    },
-    setFraction: function (num = 0, denum = 1) {
-        if (this.validateFraction(num, denum)) {
-            this.num = parseInt(num);
-            this.denum = parseInt(denum);
-            return this.getFraction();
-        } else {
-            return NaN;
-        }
+// let fraction = {
+//     num: 0,
+//     denum: 1,
+//     validateNumber: function (number) {
+//         if (isNaN(parseInt(number))) {
+//             return false;
+//         } else {
+//             return true;
+//         }
+//     },
+//     validateFraction: function (num, denum, isDivide = false) {
+//         if (isDivide) {
+//             if (this.validateNumber(num) && this.validateNumber(denum) && num != 0) {
+//                 return true;
+//             } else {
+//                 return false;
+//             }
+//         }
+//         if (this.validateNumber(num) && this.validateNumber(denum) && denum != 0) {
+//             return true;
+//         } else {
+//             return false;
+//         }
+//     },
+//     setFraction: function (num = 0, denum = 1) {
+//         if (this.validateFraction(num, denum)) {
+//             this.num = parseInt(num);
+//             this.denum = parseInt(denum);
+//             return this.getFraction();
+//         } else {
+//             return NaN;
+//         }
 
-    },
-    getFraction: function () {
-        return { num: this.num, denum: this.denum };
-    },
-    getFractionView: function () {
-        this.reductionOfFraction();
-        let result = this.getIntegerFromFraction(this.num, this.denum);
-        if(result === 1){
-            return 1;
-        }
-        if(result === 0){
-            return 0;
-        }
-        if(result.integ > 0){
-            return `${result.integ}(${result.num}/${result.denum})`;
-        }
-        return `${this.num} / ${this.denum}`;
-    },
-    getLeastCommonMultiply: function (num1, num2) {
-        if (this.validateNumber(num1) && this.validateNumber(num2)) {
-            let commonMult = num1 * num2;
-            let limiter = num1 + num2;
-            let lestComMult = 0;
-            for (let i = commonMult; i >= 1; i--) {
-                if (i % num1 === 0 && i % num2 === 0) {
-                    lestComMult = i;
-                }
-            }
-            return lestComMult;
-        } else {
-            return 0;
-        }
-    },
-    sumFraction: function ({ num, denum }) {
-        if (!this.validateFraction(num, denum)) {
-            return NaN;
-        }
-        if (this.denum == denum) {
-            this.num += num;
-            return this.getFraction();
-        }
-        //lowest common denominator
-        let lestComMult = this.getLeastCommonMultiply(this.denum, denum);
-        //additional multipliers for each fraction
-        let mult1 = lestComMult / this.denum;
-        let mult2 = lestComMult / denum;
-        //Sum
-        this.num = (mult1 * this.num) + (mult2 * num);
-        this.denum = lestComMult;
-        return this.getFraction();
-    },
-    subFraction: function ({ num, denum }) {
-        if (!this.validateFraction(num, denum)) {
-            return NaN;
-        }
-        if (this.denum == denum) {
-            this.num -= num;
-            return this.getFraction();
-        }
-        //lowest common denominator
-        let lestComMult = this.getLeastCommonMultiply(this.denum, denum);
-        //additional multipliers for each fraction
-        let mult1 = lestComMult / this.denum;
-        let mult2 = lestComMult / denum;
-        //Sum
-        this.num = parseInt((mult1 * this.num) - (mult2 * num));
-        this.denum = lestComMult;
-        return this.getFraction();
-    },
-    multFraction: function ({ num, denum }) {
-        if (!this.validateFraction(num, denum)) {
-            return NaN;
-        }
-        this.num *= num;
-        this.denum *= denum;
-        return this.getFraction();
-    },
-    divideFraction: function ({ num, denum }) {
-        if (!this.validateFraction(num, denum, true)) {
-            return NaN;
-        }
+//     },
+//     getFraction: function () {
+//         return { num: this.num, denum: this.denum };
+//     },
+//     getFractionView: function () {
+//         this.reductionOfFraction();
+//         let result = this.getIntegerFromFraction(this.num, this.denum);
+//         if(result === 1){
+//             return 1;
+//         }
+//         if(result === 0){
+//             return 0;
+//         }
+//         if(result.integ > 0){
+//             return `${result.integ}(${result.num}/${result.denum})`;
+//         }
+//         return `${this.num} / ${this.denum}`;
+//     },
+//     getLeastCommonMultiply: function (num1, num2) {
+//         if (this.validateNumber(num1) && this.validateNumber(num2)) {
+//             let commonMult = num1 * num2;
+//             let limiter = num1 + num2;
+//             let lestComMult = 0;
+//             for (let i = commonMult; i >= 1; i--) {
+//                 if (i % num1 === 0 && i % num2 === 0) {
+//                     lestComMult = i;
+//                 }
+//             }
+//             return lestComMult;
+//         } else {
+//             return 0;
+//         }
+//     },
+//     sumFraction: function ({ num, denum }) {
+//         if (!this.validateFraction(num, denum)) {
+//             return NaN;
+//         }
+//         if (this.denum == denum) {
+//             this.num += num;
+//             return this.getFraction();
+//         }
+//         //lowest common denominator
+//         let lestComMult = this.getLeastCommonMultiply(this.denum, denum);
+//         //additional multipliers for each fraction
+//         let mult1 = lestComMult / this.denum;
+//         let mult2 = lestComMult / denum;
+//         //Sum
+//         this.num = (mult1 * this.num) + (mult2 * num);
+//         this.denum = lestComMult;
+//         return this.getFraction();
+//     },
+//     subFraction: function ({ num, denum }) {
+//         if (!this.validateFraction(num, denum)) {
+//             return NaN;
+//         }
+//         if (this.denum == denum) {
+//             this.num -= num;
+//             return this.getFraction();
+//         }
+//         //lowest common denominator
+//         let lestComMult = this.getLeastCommonMultiply(this.denum, denum);
+//         //additional multipliers for each fraction
+//         let mult1 = lestComMult / this.denum;
+//         let mult2 = lestComMult / denum;
+//         //Sum
+//         this.num = parseInt((mult1 * this.num) - (mult2 * num));
+//         this.denum = lestComMult;
+//         return this.getFraction();
+//     },
+//     multFraction: function ({ num, denum }) {
+//         if (!this.validateFraction(num, denum)) {
+//             return NaN;
+//         }
+//         this.num *= num;
+//         this.denum *= denum;
+//         return this.getFraction();
+//     },
+//     divideFraction: function ({ num, denum }) {
+//         if (!this.validateFraction(num, denum, true)) {
+//             return NaN;
+//         }
 
-        this.num *= denum;
-        this.denum *= num;
-    },
-    reductionOfFraction: function (num = 0, denum = 0) {
-        for (let i = 1; i <= 10; i++) {
+//         this.num *= denum;
+//         this.denum *= num;
+//     },
+//     reductionOfFraction: function (num = 0, denum = 0) {
+//         for (let i = 1; i <= 10; i++) {
             
-            if(this.num % i === 0 && this.denum % i === 0){
-                this.num = this.num / i;
-                this.denum = this.denum / i;
-            }
-        }
-        return this.getFraction();
-    },
-    getIntegerFromFraction: function(num, denum){
-        result = {
-            integ: 0,
-            num,
-            denum: denum,
-        };
-        console.log(result);
-        if(num > denum){
-            result.integ = parseInt(num/denum);
-            result.num = num - (denum * result.integ);
-        }
-        if(num === denum){
-            return 1;
-        }
-        if(num === 0){
-            return 0;
-        }
-        return result;
-    }
+//             if(this.num % i === 0 && this.denum % i === 0){
+//                 this.num = this.num / i;
+//                 this.denum = this.denum / i;
+//             }
+//         }
+//         return this.getFraction();
+//     },
+//     getIntegerFromFraction: function(num, denum){
+//         result = {
+//             integ: 0,
+//             num,
+//             denum: denum,
+//         };
+//         console.log(result);
+//         if(num > denum){
+//             result.integ = parseInt(num/denum);
+//             result.num = num - (denum * result.integ);
+//         }
+//         if(num === denum){
+//             return 1;
+//         }
+//         if(num === 0){
+//             return 0;
+//         }
+//         return result;
+//     }
 
 
-}
+// }
 
-let frac = fraction.setFraction(3, 4);
-let frac2 = fraction.setFraction(4, 6);
+// let frac = fraction.setFraction(3, 4);
+// let frac2 = fraction.setFraction(4, 6);
 
-let result = fraction.sumFraction(frac);
-console.log(result);
-console.log(frac2);
-result = fraction.subFraction(frac2);
-console.log(result);
-frac = fraction.setFraction(1, 2);
-frac2 = fraction.setFraction(25, 10);
-//result = fraction.multFraction(frac);
-console.log(result);
-//console.log(fraction.reductionOfFraction());
-console.log(fraction.getFractionView());
+// let result = fraction.sumFraction(frac);
+// console.log(result);
+// console.log(frac2);
+// result = fraction.subFraction(frac2);
+// console.log(result);
+// frac = fraction.setFraction(1, 2);
+// frac2 = fraction.setFraction(25, 10);
+// //result = fraction.multFraction(frac);
+// console.log(result);
+// //console.log(fraction.reductionOfFraction());
+// console.log(fraction.getFractionView());
 
 
