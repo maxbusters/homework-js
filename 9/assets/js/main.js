@@ -153,8 +153,7 @@ class ResizebleBlock {
             
         })
         document.addEventListener('mouseup', (e) => {
-            this.isDown = false;
-            
+            this.isDown = false; 
         })
 
         document.addEventListener('mousemove', (e) => {
@@ -171,8 +170,14 @@ class ResizebleBlock {
         let btn = document.getElementById('resize')
         let width = btn.parentElement.offsetWidth;
         let height = btn.parentElement.offsetHeight;
-        btn.parentElement.style.width = width + e.movementX + 'px';
-        btn.parentElement.style.height = height + e.movementY + 'px';
+        /* if(width < 300 && height < 95) {
+            btn.parentElement.style.width = '300 px';
+            btn.parentElement.style.height = '95 px';
+        } else { */
+            btn.parentElement.style.width = width + e.movementX + 'px';
+            btn.parentElement.style.height = height + e.movementY + 'px';
+        //}
+        
     }
 }
 
