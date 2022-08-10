@@ -68,14 +68,14 @@ class TextEditor {
 }
 
 class TableProvider {
-    constructor(){
+    constructor() {
         this.bindListeners()
     }
 
-    bindListeners(){
+    bindListeners() {
         let table = document.getElementById('tableNames');
         let headers = table.getElementsByTagName('th');
-        
+
         headers[0].addEventListener('click', () => {
             this.sortById();
         });
@@ -87,57 +87,57 @@ class TableProvider {
         });
     }
 
-    buildTable(table){
+    buildTable(table) {
         let data = document.getElementById('tableNames').getElementsByTagName('tbody')[0];
         data.innerHTML = '';
-        for(let el of table){
+        for (let el of table) {
             data.append(el);
         }
         console.log('finish sort')
     }
 
-    sortById(){
+    sortById() {
         let data = document.getElementById('tableNames').getElementsByTagName('tbody')[0];
-        
+
 
         let arr = data.getElementsByTagName('tr')
         arr = Array.from(arr).sort((rowA, rowB) => {
-            return (parseInt(rowA.cells[0].innerText) > parseInt(rowB.cells[0].innerText)? 1 : -1);
-            
+            return (parseInt(rowA.cells[0].innerText) > parseInt(rowB.cells[0].innerText) ? 1 : -1);
+
         })
         this.buildTable(arr);
     }
 
-    sortByName(){
+    sortByName() {
         let data = document.getElementById('tableNames').getElementsByTagName('tbody')[0];
-        
+
 
         let arr = data.getElementsByTagName('tr')
         arr = Array.from(arr).sort((rowA, rowB) => {
-            return (rowA.cells[1].innerText > rowB.cells[1].innerText? 1: -1);
+            return (rowA.cells[1].innerText > rowB.cells[1].innerText ? 1 : -1);
         })
         this.buildTable(arr);
     }
 
-    sortByLastName(){
+    sortByLastName() {
         let data = document.getElementById('tableNames').getElementsByTagName('tbody')[0];
-        
+
 
         let arr = data.getElementsByTagName('tr')
         arr = Array.from(arr).sort((rowA, rowB) => {
-            return (rowA.cells[2].innerText > rowB.cells[2].innerText? 1: -1);
+            return (rowA.cells[2].innerText > rowB.cells[2].innerText ? 1 : -1);
         })
         this.buildTable(arr);
-    } 
+    }
 }
 
 class ResizebleBlock {
-    constructor(){
+    constructor() {
         this.buildHtml()
         this.isDown = false;
     }
 
-    buildHtml(){
+    buildHtml() {
         let cont = document.createElement('div');
         cont.className = 'block__cont';
         let div = document.createElement('div');
@@ -149,35 +149,35 @@ class ResizebleBlock {
         btn.className = 'block__btn'
         btn.id = 'resize'
         btn.addEventListener('mousedown', (e) => {
+            e.preventDefault()
             this.isDown = true;
-            
+
         })
         document.addEventListener('mouseup', (e) => {
-            this.isDown = false; 
+            e.preventDefault()
+            this.isDown = false;
         })
 
         document.addEventListener('mousemove', (e) => {
-            if(this.isDown){
+            e.preventDefault()
+            if (this.isDown) {
                 this.resizeBlock(e)
             }
-            
+
         })
         cont.append(btn);
         document.body.append(cont);
     }
-    
-    resizeBlock(e){
+
+    resizeBlock(e) {
         let btn = document.getElementById('resize')
         let width = btn.parentElement.offsetWidth;
         let height = btn.parentElement.offsetHeight;
-        /* if(width < 300 && height < 95) {
-            btn.parentElement.style.width = '300 px';
-            btn.parentElement.style.height = '95 px';
-        } else { */
-            btn.parentElement.style.width = width + e.movementX + 'px';
-            btn.parentElement.style.height = height + e.movementY + 'px';
-        //}
-        
+
+        btn.parentElement.style.width = width + e.movementX + 'px';
+        btn.parentElement.style.height = height + e.movementY + 'px';
+
+
     }
 }
 
