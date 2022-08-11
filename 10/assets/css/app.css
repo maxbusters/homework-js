@@ -1,0 +1,266 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #2B3040;
+}
+
+main {
+  flex: auto;
+}
+
+li {
+  list-style: none;
+}
+
+input {
+  outline: none;
+}
+
+.container, .card__container, .header__container {
+  width: 87%;
+  margin: 0 auto;
+}
+
+.info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Lato";
+  font-weight: 400;
+  width: 70%;
+  height: 84%;
+  max-width: 1000px;
+  max-height: 860px;
+  margin: 0 auto;
+  background-image: url("../images/bg-image.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.info__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  max-width: 600px;
+  max-height: 552px;
+  background-color: #212534;
+  height: auto;
+}
+
+.header {
+  background-color: #2B3040;
+  width: 100%;
+}
+.header__nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.header .nav__el + .nav__el {
+  margin-left: 70px;
+}
+.header .el {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 28px 0;
+}
+.header .el__ico {
+  margin-bottom: 15px;
+}
+.header .el__ico path {
+  stroke: #8D91A3;
+}
+.header .el__title {
+  text-transform: uppercase;
+  font-size: 16px;
+  line-height: 28px;
+  color: #8D91A3;
+}
+.header .el:hover {
+  cursor: pointer;
+}
+.header .el:hover .el__ico path {
+  stroke: white;
+}
+.header .el:hover .el__title {
+  color: white;
+}
+
+.card__wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.card__left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.card .left__img {
+  margin-bottom: 25px;
+}
+.card .rating {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.card .rating__el path {
+  fill: #8D91A3;
+}
+.card .rating__el + .rating__el {
+  margin-left: 10px;
+}
+.card .rating .rating__el:hover {
+  cursor: pointer;
+}
+.card .rating .rating__el:hover path {
+  fill: #FFDD3F;
+}
+.card__right {
+  margin: 60px 0;
+  margin-left: 41px;
+}
+.card__right .descr {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-content: space-between;
+  align-items: flex-end;
+  color: white;
+  margin-bottom: 40px;
+}
+.card__right .descr__title {
+  font-size: 32px;
+  line-height: 32px;
+  margin-bottom: 15px;
+}
+.card__right .descr__subtitle {
+  font-size: 14px;
+  line-height: 20px;
+}
+.card__right .descr__score text {
+  font-size: 20px;
+  line-height: 22px;
+  fill: #B7BACD;
+}
+.card__right .full {
+  margin-bottom: 50px;
+}
+.card__right .full__text {
+  font-size: 14px;
+  line-height: 22px;
+  color: #B7BACD;
+  margin-right: 42px;
+}
+.card__right .purchase {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-content: space-between;
+}
+.card__right .purchase__pricing {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-items: flex-start;
+}
+.card__right .purchase__discount {
+  font-size: 12px;
+  line-height: 20px;
+  color: #FFDD3F;
+  padding-bottom: 4px;
+}
+.card__right .purchase__price {
+  font-size: 32px;
+  line-height: 32px;
+  color: white;
+}
+.card__right .purchase__btn {
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 20px 30px;
+  background-color: #13E28D;
+  border-radius: 2px;
+  color: white;
+}
+.card__right .purchase .purchase__btn:hover {
+  background-color: #FFDD3F;
+}/*# sourceMappingURL=app.css.map */

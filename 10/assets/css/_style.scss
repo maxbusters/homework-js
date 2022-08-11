@@ -1,0 +1,197 @@
+.info {
+    @include flex-center;
+    @include lato;
+    width: 70%;
+    height: 84%;
+    max-width: 1000px;
+    max-height: 860px;
+    margin: 0 auto;
+
+    background-image: url('../images/bg-image.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+    &__wrapper {
+        @include flex-col;
+        width: 60%;
+        max-width: 600px;
+        max-height: 552px;
+        background-color: $deepBlue;
+        height: auto;
+    }
+}
+
+.header {
+    background-color: $darkBlue;
+    width: 100%;
+
+    &__container {
+        @extend .container;
+    }
+
+    &__nav {
+        @include flex-row;
+    }
+
+    .nav {
+        &__el+.nav__el {
+            margin-left: 70px;
+        }
+    }
+
+    .el {
+        @include flex-col;
+        margin: 28px 0;
+
+        &__ico {
+            margin-bottom: 15px;
+
+            path {
+                stroke: $inactive;
+            }
+        }
+
+        &__title {
+            @include upper;
+            @include font-sizes(16px, 28px);
+            color: $inactive;
+        }
+    }
+
+    .el:hover {
+        cursor: pointer;
+
+        .el__ico {
+            path {
+                stroke: white;
+            }
+        }
+
+        .el__title {
+            color: white;
+        }
+    }
+}
+
+.card {
+    &__container {
+        @extend .container;
+    }
+
+    &__wrapper {
+        @include flex-row;
+    }
+
+    &__left {
+        @include flex-col;
+    }
+
+    .left {
+        &__img {
+            margin-bottom: 25px;
+        }
+    }
+
+    .rating {
+        @include flex-row;
+
+        &__el {
+            path {
+                fill: $inactive;
+            }
+        }
+
+        &__el+.rating__el {
+            margin-left: 10px;
+        }
+
+        .rating__el:hover {
+            cursor: pointer;
+
+            path {
+                fill: $yellow;
+
+            }
+        }
+    }
+
+    &__right {
+        margin: 60px 0;
+        margin-left: 41px;
+        .descr {
+            @include flex-row;
+            justify-content: space-between;
+            align-items: flex-end;
+            
+            color: white;
+            margin-bottom: 40px;
+
+            &__title {
+                @include font-sizes(32px, 32px);
+                margin-bottom: 15px;
+            }
+
+            &__subtitle {
+                @include font-sizes(14px, 20px);
+            }
+
+            &__score {
+                text {
+                    @include font-sizes(20px, 22px);
+                    fill: $text;
+                }
+            }
+        }
+
+        .full {
+            margin-bottom: 50px;
+            &__text {
+                @include font-sizes(14px, 22px);
+                color: $text;
+                margin-right: 42px;
+            }
+
+
+        }
+
+        .purchase {
+            @include flex-row;
+            justify-content: space-between;
+
+            &__pricing {
+                @include flex-col;
+                align-items: flex-start;
+            }
+
+            &__discount {
+                @include font-sizes(12px, 20px);
+                color: $yellow;
+                padding-bottom: 4px;
+            }
+
+            &__price {
+                @include font-sizes(32px, 32px);
+                color: white;
+            }
+
+            &__btn {
+                @include upper;
+                cursor: pointer;
+                padding: 20px 30px;
+                background-color: $ligthGreen;
+                border-radius: 2px;
+                color: white;
+            }
+
+            .purchase__btn:hover {
+                background-color: $yellow;
+            }
+
+            
+        }
+
+        
+    }
+}

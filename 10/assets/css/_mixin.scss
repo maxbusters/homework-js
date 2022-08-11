@@ -1,0 +1,48 @@
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flex-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flex-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+@mixin lato($weight: 400){
+    font-family: 'Lato';
+    font-weight: $weight;
+}
+
+
+@mixin font-sizes($size: 16px, $height: 24px) {
+    font-size: $size;
+    line-height:$height; 
+}
+
+@mixin square-size ($size) {
+    width: $size;
+    height: $size;
+}
+
+@mixin transition($time: .4s) {
+    transition: all $time ease;
+}
+
+@mixin upper {
+    text-transform: uppercase;
+}
+
+@mixin maxWidth($width) {
+    @media screen and (max-width: $width) {
+        @content;
+    }
+}
