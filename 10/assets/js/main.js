@@ -5,7 +5,8 @@ class cardApp {
         this.NAV_HOVER = 'el--hover';
         this.RAT_HOVER = 'rating__el--hover';
         this.currPage = 0;
-        this.currRating = 3;
+        this.currRating = 0;
+        this.isBuy = false;
         this.initDomClasses();
         this.initListeners();
         this.initPage();
@@ -80,6 +81,8 @@ class cardApp {
         $('.purchase__pricing > span:last-child').addClass('purchase__price')
 
         $('.purchase > span').addClass('purchase__btn');
+        $('.purchase__btn ~ div').addClass('purchase__msg')
+        console.log($('.purchase__btn ~ div'));
     }
 
     setCurrPage(elNum){
@@ -101,13 +104,14 @@ class cardApp {
             this.unsetRating();
         }
         
-        if(!hover && rating){
-            console.log(this.currRating);
+        if(!hover && rating > 0 || rating === 0){
             this.currRating = rating;
         }
         if(!hover && !rating){
+            this.unsetRating();
             rating = this.currRating;
         }
+
        
         $('.rating__el').each((i, el) => {
             if(i <= rating){
@@ -125,6 +129,7 @@ class cardApp {
 
     initListeners(){
         $('.nav__el').each((i, el) => {
+            
            el.addEventListener('click', (e) => {
                 this.setCurrPage(i);
             })
@@ -135,12 +140,33 @@ class cardApp {
         });
 
         $('.rating__el').each((i, el) => {
+            
             el.addEventListener('mouseover', (e) =>{
                 this.setRating(i, true);
             })
             el.addEventListener('click', () => {
                 this.setRating(i, false);
             })
+        })
+
+        $('.purchase__btn').on('click', () => {
+            let msg = $('<span></span>');
+            
+            $(msg).addClass('card__msg');
+            if(this.isBuy === false){
+                $(msg).text('Added to cart');
+                $(msg).css('background-color', 'green')
+                this.isBuy = true;
+            } else {
+                $(msg).text('Already added');
+                $(msg).css('background-color', 'deeppink')
+            }
+            $('.card').append(msg);
+            $(msg).fadeIn();
+            setTimeout(() => {
+                
+                $('.card__msg').fadeOut();
+            }, 2000)
         })
     }
 

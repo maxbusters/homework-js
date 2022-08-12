@@ -91,9 +91,12 @@
 }
 
 .card {
+    position: relative;
     &__container {
         @extend .container;
+           
     }
+    
 
     &__wrapper {
         @include flex-row;
@@ -222,4 +225,13 @@
 
         
     }
+    &__msg {
+        background-color: deeppink;
+        color: white;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        text-align: center;
+        display: none;
+    } 
 }

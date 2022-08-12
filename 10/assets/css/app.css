@@ -171,6 +171,9 @@ input {
   color: white;
 }
 
+.card {
+  position: relative;
+}
 .card__wrapper {
   display: flex;
   flex-direction: row;
@@ -281,4 +284,13 @@ input {
 }
 .card__right .purchase .purchase__btn:hover {
   background-color: #FFDD3F;
+}
+.card__msg {
+  background-color: deeppink;
+  color: white;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  display: none;
 }/*# sourceMappingURL=app.css.map */
