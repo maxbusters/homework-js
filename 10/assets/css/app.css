@@ -152,6 +152,15 @@ input {
   line-height: 28px;
   color: #8D91A3;
 }
+.header .el--hover {
+  cursor: pointer;
+}
+.header .el--hover .el__ico path {
+  stroke: white;
+}
+.header .el--hover .el__title {
+  color: white;
+}
 .header .el:hover {
   cursor: pointer;
 }
@@ -186,6 +195,12 @@ input {
 }
 .card .rating__el + .rating__el {
   margin-left: 10px;
+}
+.card .rating .rating__el--hover {
+  cursor: pointer;
+}
+.card .rating .rating__el--hover path {
+  fill: #FFDD3F;
 }
 .card .rating .rating__el:hover {
   cursor: pointer;
@@ -260,6 +275,9 @@ input {
   background-color: #13E28D;
   border-radius: 2px;
   color: white;
+}
+.card__right .purchase__btn--hover {
+  background-color: #FFDD3F;
 }
 .card__right .purchase .purchase__btn:hover {
   background-color: #FFDD3F;

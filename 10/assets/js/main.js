@@ -2,10 +2,15 @@
 
 class cardApp {
     constructor() {
-        this.currPage = 1;
+        this.NAV_HOVER = 'el--hover';
+        this.RAT_HOVER = 'rating__el--hover';
+        this.currPage = 0;
         this.currRating = 3;
         this.initDomClasses();
-        this.start();
+        this.initListeners();
+        this.initPage();
+        this.setCurrPage(0);
+        this.setRating();
     }
 
     initDomClasses() {
@@ -77,16 +82,74 @@ class cardApp {
         $('.purchase > span').addClass('purchase__btn');
     }
 
-    start(){
-        console.log(this.currPage);
+    setCurrPage(elNum){
+        $('.nav__el').each((i, navEl) => {
+            if(i === this.currPage){
+                $(navEl).removeClass(this.NAV_HOVER);
+            }
+
+            if(i === elNum) {
+                $(navEl).addClass(this.NAV_HOVER);
+            }
+        })
+        this.currPage = elNum;
+        this.initPage();
     }
 
-    setCurrPage(){
-
-    }
-
-    setRating(){
+    setRating(rating = false, hover = false){
+        if(hover === true){
+            this.unsetRating();
+        }
         
+        if(!hover && rating){
+            console.log(this.currRating);
+            this.currRating = rating;
+        }
+        if(!hover && !rating){
+            rating = this.currRating;
+        }
+       
+        $('.rating__el').each((i, el) => {
+            if(i <= rating){
+                $(el).addClass(this.RAT_HOVER);
+            }
+        });
+
+    }
+
+    unsetRating(){
+        $('.rating__el').each((i, el) => {
+            $(el).removeClass(this.RAT_HOVER);
+        });
+    }
+
+    initListeners(){
+        $('.nav__el').each((i, el) => {
+           el.addEventListener('click', (e) => {
+                this.setCurrPage(i);
+            })
+        });
+
+        $('.rating').mouseleave(() => {
+            this.setRating();
+        });
+
+        $('.rating__el').each((i, el) => {
+            el.addEventListener('mouseover', (e) =>{
+                this.setRating(i, true);
+            })
+            el.addEventListener('click', () => {
+                this.setRating(i, false);
+            })
+        })
+    }
+
+    initPage(){
+        if(this.currPage !== 0){
+            $('.card__container').css({opacity: '0'});
+        } else {
+            $('.card__container').css({opacity: '1'});
+        }
     }
 
 }

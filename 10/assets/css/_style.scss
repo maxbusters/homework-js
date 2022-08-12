@@ -39,6 +39,7 @@
         &__el+.nav__el {
             margin-left: 70px;
         }
+
     }
 
     .el {
@@ -57,6 +58,20 @@
             @include upper;
             @include font-sizes(16px, 28px);
             color: $inactive;
+        }
+    }
+
+    .el--hover {
+        cursor: pointer;
+
+        .el__ico {
+            path {
+                stroke: white;
+            }
+        }
+
+        .el__title {
+            color: white;
         }
     }
 
@@ -105,6 +120,15 @@
 
         &__el+.rating__el {
             margin-left: 10px;
+        }
+
+        .rating__el--hover {
+            cursor: pointer;
+
+            path {
+                fill: $yellow;
+
+            }
         }
 
         .rating__el:hover {
@@ -183,6 +207,10 @@
                 background-color: $ligthGreen;
                 border-radius: 2px;
                 color: white;
+            }
+
+            &__btn--hover {
+                background-color: $yellow;
             }
 
             .purchase__btn:hover {
