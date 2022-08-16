@@ -31,6 +31,10 @@
         }
     }
 
+    &__logo {
+        padding-right: 10px;
+    }
+
     .nav {
         @include maxWidth(700px) {
             display: none;
@@ -433,6 +437,11 @@
             max-width: 1900px;
             margin: 0 auto;
             width: 85%;
+
+            @include maxWidth(1800px) {
+                max-width: 1600px;
+                width: 80%;
+            }
 
             @include maxWidth(1440px) {
                 max-width: 1300px;

@@ -87,6 +87,13 @@ $(function () {
     adaptiveWidth: true,
     responsive: [
       {
+        breakpoint: 1800,
+        settings: {
+          arrows: false,
+          slidesToShow: 7
+        }
+      },
+      {
         breakpoint: 1400,
         settings: {
           arrows: false,

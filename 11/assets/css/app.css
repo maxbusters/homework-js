@@ -163,6 +163,9 @@ li {
     line-height: 20px;
   }
 }
+.header__logo {
+  padding-right: 10px;
+}
 @media screen and (max-width: 700px) {
   .header .nav {
     display: none;
@@ -528,6 +531,12 @@ li {
   margin: 0 auto;
   width: 85%;
   margin-bottom: 70px;
+}
+@media screen and (max-width: 1800px) {
+  .main .brands__slider {
+    max-width: 1600px;
+    width: 80%;
+  }
 }
 @media screen and (max-width: 1440px) {
   .main .brands__slider {
