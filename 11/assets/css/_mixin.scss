@@ -1,0 +1,69 @@
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flex-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flex-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+@mixin roboto($weight: 400){
+    font-family: 'Roboto';
+    font-weight: $weight;
+}
+
+@mixin raleway($weight: 400) {
+    font-family: 'Raleway';
+    font-weight: $weight;
+}
+
+@mixin opensans($weight: 400) {
+    font-family: 'Open Sans';
+    font-weight: $weight;
+}
+
+@mixin montserrat($weight: 500) {
+    font-family: 'Montserrat';
+    font-weight: $weight;
+}
+
+
+
+@mixin font-sizes($size: 16px, $height: 24px) {
+    font-size: $size;
+    line-height:$height; 
+}
+
+@mixin square-size ($size) {
+    width: $size;
+    height: $size;
+}
+
+@mixin transition($time: .4s) {
+    transition: all $time ease;
+}
+
+@mixin upper {
+    text-transform: uppercase;
+}
+
+@mixin maxWidth($width) {
+    @media screen and (max-width: $width) {
+        @content;
+    }
+}
+
+@mixin sliderContainer {
+    max-width: 1920px;
+    margin: 0 auto;
+}

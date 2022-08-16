@@ -1,0 +1,58 @@
+html,
+body {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+section {
+    margin-bottom: 70px;
+}
+
+main {
+    flex: auto;
+}
+
+a {
+    text-decoration: none;
+    color: $brown-light;
+}
+
+a:hover {
+    color: $tomato-light;
+}
+
+li {
+    list-style: none;
+}
+
+.container {
+    max-width: 1200px;
+    width: 81.25%;
+    margin: 0 auto;
+}
+
+.btn {
+    @include font-sizes(18px, 22px);
+    @include montserrat(500);
+    @include upper;
+    padding: 15px 57px;
+    @include maxWidth(800px){
+        padding: 10px 26px;
+    }
+}
+
+.btn:hover {
+    cursor: pointer;
+    color: $brown-light;
+    background: $tomato-light;
+    border: 2px solid $tomato-light;
+}

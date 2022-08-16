@@ -1,0 +1,727 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+section {
+  margin-bottom: 70px;
+}
+
+main {
+  flex: auto;
+}
+
+a {
+  text-decoration: none;
+  color: #F8F1EA;
+}
+
+a:hover {
+  color: #F16A50;
+}
+
+li {
+  list-style: none;
+}
+
+.container, .footer__container, .main__container {
+  max-width: 1200px;
+  width: 81.25%;
+  margin: 0 auto;
+}
+
+.btn, .main .arrivals__btn, .main .intro .content__btn {
+  font-size: 18px;
+  line-height: 22px;
+  font-family: "Montserrat";
+  font-weight: 500;
+  text-transform: uppercase;
+  padding: 15px 57px;
+}
+@media screen and (max-width: 800px) {
+  .btn, .main .arrivals__btn, .main .intro .content__btn {
+    padding: 10px 26px;
+  }
+}
+
+.btn:hover, .main .arrivals__btn:hover, .main .intro .content__btn:hover {
+  cursor: pointer;
+  color: #F8F1EA;
+  background: #F16A50;
+  border: 2px solid #F16A50;
+}
+
+.header {
+  background-color: #F8F1EA;
+}
+.header__container {
+  width: 96%;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+@media screen and (max-width: 768px) {
+  .header__container {
+    max-width: 750px;
+  }
+}
+.header__wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+}
+@media screen and (max-width: 900px) {
+  .header__wrapper {
+    padding: 20px 5px;
+  }
+}
+.header__nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+}
+@media screen and (max-width: 900px) {
+  .header__nav {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .header .nav {
+    display: none;
+  }
+}
+.header .nav__el {
+  color: #000000;
+  padding: 28px 15px;
+}
+.header .nav .nav__el:hover {
+  background-color: #F16A50;
+  color: white;
+}
+.header .action {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.header .action .action__el:last-child {
+  padding-left: 30px;
+}
+@media screen and (max-width: 700px) {
+  .header .action .action__el:last-child {
+    padding-left: 38px;
+  }
+}
+.header .action .action__el:first-child {
+  padding-right: 20px;
+}
+.header .action .action__el:hover svg .action__el--fill {
+  fill: #F16A50;
+}
+.header .action .action__el:hover svg .action__el--stroke {
+  stroke: #F16A50;
+}
+.header .action .burger {
+  display: none;
+}
+@media screen and (max-width: 700px) {
+  .header .action .burger {
+    display: block;
+  }
+}
+
+.main .intro {
+  height: 700px;
+}
+@media screen and (max-width: 800px) {
+  .main .intro {
+    height: 380px;
+  }
+}
+.main .intro__slide {
+  height: 700px;
+  max-width: 1920px;
+  margin: 0 auto;
+  position: relative;
+}
+@media screen and (max-width: 800px) {
+  .main .intro__slide {
+    height: 380px;
+  }
+}
+.main .intro__slide .slick-next,
+.main .intro__slide .slick-prev {
+  display: none;
+}
+.main .intro__slide .slick-dots {
+  position: absolute;
+  z-index: 1;
+  bottom: 50px;
+}
+.main .intro__slide .slick-dots li button {
+  border: none;
+  border-radius: 100%;
+  background-color: rgba(248, 241, 234, 0.7);
+  z-index: 2;
+  text-indent: -9999px;
+}
+.main .intro__slide .slick-dots li + li {
+  margin-left: 30px;
+}
+.main .intro__slide .slick-dots li.slick-active button {
+  background-color: #F16A50;
+}
+.main .intro .content {
+  position: relative;
+  height: 700px;
+  width: 100%;
+}
+@media screen and (max-width: 800px) {
+  .main .intro .content {
+    height: 380px;
+  }
+}
+.main .intro .content__wrapper {
+  position: absolute;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(240, 240, 240, 0) 100%);
+  z-index: 2;
+}
+.main .intro .content__img {
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.main .intro .content__block {
+  text-align: center;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  position: absolute;
+  color: white;
+  right: 100px;
+  top: 120px;
+}
+@media screen and (max-width: 800px) {
+  .main .intro .content__block {
+    width: 210px;
+  }
+}
+@media screen and (max-width: 800px) {
+  .main .intro .content__block {
+    right: 82px;
+    top: 60px;
+  }
+}
+.main .intro .content__title {
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 61px;
+  margin-bottom: 50px;
+}
+@media screen and (max-width: 768px) {
+  .main .intro .content__title {
+    font-size: 26px;
+    line-height: 32px;
+    margin-bottom: 30px;
+  }
+}
+.main .intro .content__btn {
+  border: 2px solid #F8F1EA;
+}
+.main .arrivals {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* //max-width: 1900px;
+  @include maxWidth(1440px){
+      max-width: 1390px
+  }
+  @include maxWidth(1200px){
+      max-width: 1390px
+  }
+  @include maxWidth(800px){
+      max-width: 750px
+  }
+  @include maxWidth(500px){
+      max-width: 400px
+  } */
+  overflow: hidden;
+  margin-bottom: 70px;
+}
+.main .arrivals__wrapper {
+  width: 100%;
+  position: relative;
+  height: 450px;
+}
+@media screen and (max-width: 550px) {
+  .main .arrivals__wrapper {
+    margin-bottom: 50px;
+  }
+}
+.main .arrivals__wrapper .prev {
+  position: absolute;
+  left: 30px;
+  top: 145px;
+  cursor: pointer;
+}
+@media screen and (max-width: 550px) {
+  .main .arrivals__wrapper .prev {
+    display: none;
+  }
+}
+.main .arrivals__wrapper .next {
+  top: 145px;
+  position: absolute;
+  right: 30px;
+  cursor: pointer;
+}
+@media screen and (max-width: 550px) {
+  .main .arrivals__wrapper .next {
+    display: none;
+  }
+}
+.main .arrivals__title {
+  font-family: "Montserrat";
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 39px;
+  text-transform: uppercase;
+  color: black;
+  margin-bottom: 50px;
+}
+.main .arrivals__slider {
+  box-sizing: border-box;
+  width: 85%;
+  margin: 0 auto;
+  height: 100%;
+}
+@media screen and (max-width: 1440px) {
+  .main .arrivals__slider {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 800px) {
+  .main .arrivals__slider {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .main .arrivals__slider {
+    width: 60%;
+  }
+}
+.main .arrivals__slider .slick-slide {
+  margin: 0 25px;
+}
+.main .arrivals__slider .slider-item img {
+  max-width: 100%;
+  margin: 0 25px;
+}
+.main .arrivals__btn {
+  color: black;
+  border: 2px solid black;
+  position: relative;
+}
+.main .arrivals .item {
+  position: relative;
+}
+.main .arrivals .item__img {
+  width: 100%;
+}
+.main .arrivals .item__container {
+  padding: 20px 10px;
+  border: 1px solid #F8F1EA;
+  width: 100%;
+  max-width: 223px;
+  min-width: 223px;
+}
+@media screen and (max-width: 470px) {
+  .main .arrivals .item__container {
+    min-width: 150px;
+  }
+}
+.main .arrivals .item__status {
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 12px;
+}
+.main .arrivals .item__status--sold {
+  color: black;
+  padding: 4px 15.5px;
+  background-color: #F8F1EA;
+}
+.main .arrivals .item__status--stock {
+  color: #F8F1EA;
+  padding: 4px 5.5px;
+  background-color: #F16A50;
+}
+.main .arrivals .item__descr {
+  text-align: center;
+  color: black;
+}
+.main .arrivals .item .descr {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.main .arrivals .item .descr__name {
+  font-family: "Montserrat";
+  font-weight: 600;
+  font-size: 16px 20px;
+  line-height: 24px;
+}
+.main .arrivals .item .descr__price {
+  font-size: 24px 29px;
+  line-height: 24px;
+  font-family: "Montserrat";
+  font-weight: 700;
+}
+.main .arrivals .item + .item {
+  margin-left: 20px;
+  /* @include maxWidth(800px){
+      margin-left: 120px;
+  } */
+}
+.main .brands {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #F8F1EA;
+  margin: 0;
+}
+.main .brands__title {
+  font-family: "Montserrat";
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 39px;
+  text-transform: uppercase;
+  margin-top: 70px;
+  margin-bottom: 40px;
+}
+@media screen and (max-width: 800px) {
+  .main .brands__title {
+    font-size: 20px;
+    line-height: 24px;
+    margin-top: 50px;
+  }
+}
+.main .brands__wrapper {
+  position: relative;
+}
+.main .brands__wrapper .prev {
+  position: absolute;
+  left: 50px;
+  top: 0px;
+  cursor: pointer;
+}
+@media screen and (max-width: 550px) {
+  .main .brands__wrapper .prev {
+    display: none;
+  }
+}
+.main .brands__wrapper .next {
+  top: 0px;
+  position: absolute;
+  right: 50px;
+  cursor: pointer;
+}
+@media screen and (max-width: 550px) {
+  .main .brands__wrapper .next {
+    display: none;
+  }
+}
+.main .brands__slider {
+  max-width: 1900px;
+  margin: 0 auto;
+  width: 85%;
+  margin-bottom: 70px;
+}
+@media screen and (max-width: 1440px) {
+  .main .brands__slider {
+    max-width: 1300px;
+    width: 80%;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .main .brands__slider {
+    max-width: 1000px;
+    /* width: 60%; */
+  }
+}
+@media screen and (max-width: 1000px) {
+  .main .brands__slider {
+    max-width: 800px;
+    width: 60%;
+  }
+}
+@media screen and (max-width: 800px) {
+  .main .brands__slider {
+    max-width: 700px;
+    width: 60%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .main .brands__slider {
+    max-width: 500px;
+    width: 55%;
+  }
+}
+.main .brands__slider .slick-track {
+  display: flex;
+  align-items: center;
+}
+.main .brands__slider .slick-slide {
+  margin: 0 30px;
+}
+.main .brands__slider .slider-item svg {
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.footer {
+  background: #35312D;
+}
+.footer__wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 70px;
+}
+.footer__logo {
+  display: none;
+}
+@media screen and (max-width: 800px) {
+  .footer__logo {
+    display: block;
+  }
+}
+@media screen and (max-width: 560px) {
+  .footer__logo {
+    display: none;
+  }
+}
+.footer .left {
+  padding-left: 10px;
+}
+.footer .left__logo {
+  display: block;
+}
+@media screen and (max-width: 800px) {
+  .footer .left__logo {
+    display: none;
+  }
+}
+.footer .left__nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-items: flex-start;
+  margin-top: 35px;
+}
+@media screen and (max-width: 800px) {
+  .footer .left__nav {
+    margin-top: 0;
+  }
+}
+.footer .left .nav__el {
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+}
+@media screen and (max-width: 800px) {
+  .footer .left .nav__el {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+.footer .left .nav .nav__el + .nav__el {
+  margin-top: 10px;
+}
+.footer .right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-items: flex-start;
+  padding-left: 15px;
+}
+.footer .right__title {
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 32px;
+  color: #F8F1EA;
+}
+@media screen and (max-width: 800px) {
+  .footer .right__title {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+.footer .right .socials {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 48px;
+  margin-bottom: 32px;
+}
+@media screen and (max-width: 800px) {
+  .footer .right .socials {
+    margin-top: 26px;
+    margin-bottom: 20px;
+  }
+}
+.footer .right .socials__el path {
+  fill: #F8F1EA;
+}
+.footer .right .socials__el--stroke path {
+  stroke: #F8F1EA;
+}
+.footer .right .socials .socials__el:hover {
+  cursor: pointer;
+}
+.footer .right .socials .socials__el:hover path {
+  fill: #F16A50;
+}
+.footer .right .socials .socials__el--stroke:hover {
+  cursor: pointer;
+}
+.footer .right .socials .socials__el--stroke:hover path {
+  stroke: #F16A50;
+}
+.footer .right .socials .el + .el {
+  margin-left: 30px;
+}
+@media screen and (max-width: 800px) {
+  .footer .right .socials .el + .el {
+    margin-left: 20px;
+  }
+}
+.footer .right__tel {
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 32px;
+  color: #F8F1EA;
+}
+@media screen and (max-width: 800px) {
+  .footer .right__tel {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+.footer__copy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #F8F1EA;
+  margin-top: 65px;
+  margin-bottom: 20px;
+}
+@media screen and (max-width: 800px) {
+  .footer__copy {
+    margin-top: 42px;
+  }
+}/*# sourceMappingURL=app.css.map */
