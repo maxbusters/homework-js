@@ -4,6 +4,13 @@
     box-sizing: border-box;
 }
 
+.main__title {
+    font-size: 40px;
+    color: teal;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+}
+
 .form__container {
     width: 50%;
     margin: 0 auto;
@@ -13,6 +20,7 @@
 #films {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     margin: 0 auto;
     width: 90%;
     max-width: 1920px;
@@ -60,6 +68,13 @@
 
 .el__poster-cont{
     position: relative;
+    min-width: 200px;
+    min-height: 300px;
+}
+
+.el__poster {
+    width: 200px;
+    height: 300px;
 }
 
 .el__rating{
@@ -93,6 +108,8 @@
 .descr {
     display: flex;
     flex-direction: column;
+    width: 60%;
+    padding-left: 10px;
 }
 
 .descr__title {
@@ -116,14 +133,20 @@
     margin-bottom: 20px;
 }
 
-.descr__overview{ 
+/* .descr__overview{ 
     max-width: 300px;
     
-}
+} */
 
 .descr__overview > h3 {
     font-size: 18px;
 
+}
+
+.descr__last-ep {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .details__close {
