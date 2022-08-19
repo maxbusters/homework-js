@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.form__container {
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 70px;
+}
+
+#films {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    width: 90%;
+    max-width: 1920px;
+}
+
+#details {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 50%;
+    margin: 0 auto;
+}
+
+#pages {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 90%;
+    max-width: 1900px;
+    margin: 0 auto;
+}
+
+.film__el {
+    max-width: 200px;
+    min-width: 200px;
+    margin-bottom: 30px;
+    margin-right: 20px;
+}
+
+.el__title {
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.poster--not-found {
+    width: 200px;
+    height: 300px;
+    background-color: gainsboro;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    text-align: center;
+}
+
+.el__poster-cont{
+    position: relative;
+}
+
+.el__rating{
+    color: white;
+    position: absolute;
+    bottom: 2px;
+    left: 2px;
+    border-radius: 50%;
+    background-color: black;
+    padding: 10px 6px;
+    border: 1px solid greenyellow;
+} 
+
+.el__details{
+    position: absolute;
+    right: 2px;
+    bottom: 2px;
+    width: 50%;
+    padding: 10px 5px;
+    background-color: steelblue;
+    color: white;
+    border: 1px solid steelblue;
+    text-align: center;
+}
+
+.el__details:hover {
+    cursor: pointer;
+    border-color: greenyellow;
+}
+
+.descr {
+    display: flex;
+    flex-direction: column;
+}
+
+.descr__title {
+    font-size: 34px;
+}
+
+.descr__rating {
+    text-align: center;
+    margin-top: 10px;
+    color: white;
+    border-radius: 5px;
+    background-color: black;
+    padding: 10px 5px;
+    border: 1px solid greenyellow;
+}
+
+.descr__tagline {
+    display: inline-block;
+    font-style: italic;
+    color: darkslategray;
+    margin-bottom: 20px;
+}
+
+.descr__overview{ 
+    max-width: 300px;
+    
+}
+
+.descr__overview > h3 {
+    font-size: 18px;
+
+}
+
+.details__close {
+    padding: 10px 5px;
+    background-color: steelblue;
+    color: white;
+    border: 1px solid steelblue;
+    text-align: center;
+}
+
+.details__close:hover {
+    cursor: pointer;
+    border-color: greenyellow;
+}
+
+.pages__el {
+    width: 100%;
+    max-width: 50px;
+    padding: 10px;
+    background-color: steelblue;
+    text-align: center;
+    margin: 10px;
+}
+
+.pages__el:hover {
+    cursor: pointer;
+    background-color: slategrey;
+}
+
+.pages__curr {
+    background-color: tomato;
+}
