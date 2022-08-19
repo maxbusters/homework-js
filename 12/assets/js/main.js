@@ -1,5 +1,5 @@
 const API_KEY = "95f2e22e3976553bcf6e703654ec62b7";
-const URL = "http://api.themoviedb.org/3";
+const URL = "https://api.themoviedb.org/3";
 const IMG_URL = "https://image.tmdb.org/t/p/w200";
 const DET_IMG_URL = "https://image.tmdb.org/t/p/w300";
 let type = 'movie';
