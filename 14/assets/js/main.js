@@ -1,5 +1,5 @@
 const API_KEY = "a1d61025faff0af71c05d5cf2f5dcd08";
-const URL = "http://api.openweathermap.org/data/2.5/weather";
+const URL = "https://api.openweathermap.org/data/2.5/weather";
 const IMG_URL = "https://openweathermap.org/img/wn/";
 
 async function getWeather(location) {
