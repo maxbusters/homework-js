@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 0px;
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+h1 {
+    margin-bottom: 38px;
+    font-size: 21px;
+    line-height: 25px;
+    font-weight: 400;
+}
+
+main {
+    border: 25px solid #2B81AC;
+    background-color: #3399CC;
+    padding-top: 120px;
+    padding-bottom: 130px;
+}
+
+.container {
+    max-width: 1116px;
+    margin: 0 auto;
+}
+
+.weather {
+    border: 1px solid white;
+}
+
+.weath-elem {
+    border: 2px solid white;
+    text-align: center;
+    width: 25%;
+    display: inline-block;
+    padding-top: 26px;
+    padding-bottom: 27px;
+    min-height: 100%;
+    position: relative;
+}
+
+.weath-elem:hover{
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.weath-elem p {
+    font-family: 'Lucida Sans Unicode';
+    font-size: 22px;
+    line-height: 26px;
+}
+
+.weath-elem .cels {
+    color: rgba(255, 255, 255, 0.7);
+    vertical-align: middle;
+}
+
+.weath-elem .weath-info{
+    line-height: 50px;
+    
+}
+
+.weath-elem .weath-info img {
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.weath-elem .weath-info p{
+    display: inline-block;
+    margin-right: 9px;
+}
+
+.bottom-caption {
+    padding-top: 35px;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+.weath-info .storm {
+    height: 46.99px;
+    width: 48px;
+}
+
+.middle {
+    width: 50%
+}
+
+.big {
+    width: 100%;
+}
+
+.weath-elem > .descr {
+    position: absolute;
+    bottom: 5px;
+    width: 100%;
+    height: 20px;
+    font-size: 13px;
+}
+
+.lissab {
+    background-color: #3399CC;
+}
+
+.paris {
+    background-color: #33CCCC;
+}
+
+.belgrade {
+    background-color: #996699;
+}
+
+.venice {
+    background-color: #C24747;
+}
+
+.tel-aviv {
+    background-color: #E2674A;
+}
+
+.cair {
+    background-color: #FFCC66;
+}
+
+.new-york {
+    background-color: #99CC99;
+}
+
+.new-deli {
+    background-color: #669999;
+}
+
+.san-francisco {
+    background-color: #CC6699;
+}
+
+.tokyo {
+    background-color: #339966;
+}
+
+.sydney {
+    background-color: #666699;
+}
+
