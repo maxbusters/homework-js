@@ -1,0 +1,3 @@
+.images__compress > img, .images__uncompress > img {
+    width: 500px;
+}
