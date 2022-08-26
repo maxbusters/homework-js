@@ -49,9 +49,6 @@ function buildWeatherByLocal() {
 }
 
 $(function () {
-    /* cookieStore.onchange = function() {
-        buildWeather();
-    }; */
     if (document.cookie.split(';').filter((item) => item.includes('isUpdated=true')).length) {
         buildWeatherByLocal();
     } else {
