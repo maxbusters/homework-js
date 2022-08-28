@@ -1,4 +1,5 @@
 const path = require('path');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 //const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
@@ -7,6 +8,15 @@ module.exports = {
         filename: 'main.js',
         path: path.resolve(__dirname, 'dist'),
     },
+    plugins: [
+        new HtmlWebpackPlugin({
+            hash: true,
+            title: 'My Awesome application',
+            myLinkText: 'Hello World',
+            template: './src/index.html',
+            filename: 'index.html' //relative to root of the application
+        })
+   ],
     module: {
         rules: [{
             test: /\.s[ac]ss$/i,
