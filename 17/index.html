@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 17</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <main class="main" id="app">
+        <div class="main__wrapper">
+            <div class="main__card card">
+                <div class="card-item">
+                    <div class="card-item--front front">
+                        <div class="front__wrapper">
+                            <div class="front__top top">
+                                <div class="top__chip">
+                                    <img
+                                        src="https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/chip.png">
+                                </div>
+                                <div class="top__type">
+                                    <img v-bind:src="'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' + getCardType + '.png'"
+                                        v-if="getCardType" v-bind:key="getCardType" alt="">
+                                </div>
+                            </div>
+                            <label for="cardNumber" class="front__number" ref="cardNumber">
+                                <span v-for="(n, $index) in cardMask" :key="$index">
+                                    <transition name="slide-fade-up">
+                                        <div class="front__numberItem"
+                                            v-if="$index > 4 && $index < 15 && cardNumber.length > $index && n.trim() !== ''">
+                                            *</div>
+                                        <div class="front__numberItem" :class="{ '--hidden' : n.trim() === '' }"
+                                            :key="$index" v-else-if="cardNumber.length > $index">
+                                            {{cardNumber[$index]}}
+                                        </div>
+                                        <div class="front__numberItem" :class="{ '--hidden' : n.trim() === '' }" v-else
+                                            :key="$index + 1">{{n}}</div>
+                                    </transition>
+                                </span>
+                            </label>
+                            <div class="front__bottom bottom">
+                                <label for="cardHolder" class="bottom__holder holder">
+                                    <div class="holder__title">Card Holder</div>
+                                    <transition name="slide-fade-up">
+                                        <div class="holder__name" v-if="cardHolder.length" key="1">
+                                            <transition-group name="slide-fade-right">
+                                                <span class="holder__nameItem"
+                                                    v-for="(n, $index) in cardHolder.replace(/\s\s+/g, ' ')"
+                                                    v-if="$index === $index" v-bind:key="$index + 1">{{n}}</span>
+                                            </transition-group>
+                                        </div>
+                                        <div class="holder__name" v-else key="2">Full Name</div>
+                                    </transition>
+                                </label>
+                                <div class="bottom__date date">
+                                    <label for="cardMonth" class="date__title">Expires</label>
+                                    <div class="date__mon-year">
+                                        <label for="cardMonth" class="date__dateItem">
+                                            <transition name="slide-fade-up">
+                                                <span v-if="cardMonth" v-bind:key="cardMonth">{{cardMonth}}</span>
+                                                <span v-else key="2">MM</span>
+                                            </transition>
+                                        </label>
+                                        /
+                                        <label for="cardYear" class="date__dateItem">
+                                            <transition name="slide-fade-up">
+                                                <span v-if="cardYear"
+                                                    v-bind:key="cardYear">{{String(cardYear).slice(2,4)}}</span>
+                                                <span v-else key="2">YY</span>
+                                            </transition>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-item--back back">
+                        <div class="back__wrapper">
+                            <div class="back__badge"></div>
+
+                            <div class="back__cvv cvv">
+                                <div class="cvv__title">CVV</div>
+                                <div class="cvv__band">
+                                    <span v-for="(n, $index) in cardCvv" :key="$index">
+                                        *
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="back__type">
+                                <img v-bind:src="'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' + getCardType + '.png'"
+                                    v-if="getCardType" class="card-item__typeImg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main__form form">
+                <form @submit="checkForm" action="" method="post" onsubmit="return false;">
+                    <div class="form__container">
+                        <div class="mb-3">
+                            <label for="cardNumber" class="form-label">Card Number</label>
+                            <input id="cardNumber" v-model="cardNumber" v-mask='cardMask' type="text"
+                                class="form-control" autocomplete="off">
+                        </div>
+                        <div class="mb-3">
+                            <label for="cardHolder" class="form-label">Card Holder</label>
+                            <input id="cardHolder" type="text" class="form-control" autocomplete="off"
+                                v-model="cardHolder" :maxlength="cardNameLength">
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <label for="cardMonth">Expiration Date</label>
+                            </div>
+                            <div class="col"></div>
+                            <div class="col">
+                                <label for="cardCvv" class="form-label">CVV</label>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col">
+                                <select class="form-select" id="cardMonth" v-model="cardMonth">
+                                    <option value="" disabled selected>Month</option>
+                                    <option v-bind:value="n < 10 ? '0' + n : n" v-for="n in 12"
+                                        v-bind:disabled="n < minCardMonth" v-bind:key="n">
+                                        {{n < 10 ? '0' + n : n}} </option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <select class="form-select" id="cardYear" v-model="cardYear">
+                                    <option value="" disabled selected>Year</option>
+                                    <option v-bind:value="$index + minCardYear" v-for="(n, $index) in 12"
+                                        v-bind:key="n">
+                                        {{$index + minCardYear}}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" id="cardCvv" v-mask="cvvMask" maxlength="4"
+                                    v-model="cardCvv" v-on:focus="flipCard(true)" v-on:blur="flipCard(false)"
+                                    autocomplete="off">
+                            </div>
+                        </div>
+
+                        <div class="mb-3 mt-3">
+                            <button class="btn btn-primary form-control" @click="checkForm">Submit</button>
+                        </div>
+                        <div v-if="errors.length">
+                            <div class="alert alert-danger" role="alert">
+                                <ul>
+                                    <li v-for="error in errors">{{ error }}</li>
+                                </ul>
+                                
+                            </div>
+                        </div>
+                        <div v-if="isSuccess">
+                            <div class="alert alert-success" role="alert">
+                                All ok
+                            </div>
+                        </div>
+                        <span id="scrollAnch"></span>
+                    </div>
+                </form>
+            </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/v-mask/dist/v-mask.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
