@@ -1,4 +1,4 @@
-Vue.directive('mask', VueMask.VueMaskDirective);
+
 new Vue({
     el: "#app",
     data() {
