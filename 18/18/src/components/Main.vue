@@ -328,6 +328,11 @@ export default {
         this.errors.push("CVV must contains from 3 to 4 digits");
       }
 
+      if (this.cardNumber.replace(/\s+/g,"").length < 16) {
+        console.log(this.cardNumber.replace(/\s+/g,""));
+        this.errors.push("Card number must contains 16 digits");
+      }
+
       if (this.errors.length === 0) {
         this.isScroll = true;
         this.isSuccess = true;
