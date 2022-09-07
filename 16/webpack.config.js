@@ -1,6 +1,6 @@
 const path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-//const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const isDevelopment = process.env.NODE_ENV === 'development'
 
 module.exports = {
     entry: './src/index.js',
@@ -12,7 +12,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             hash: true,
             title: 'My Awesome application',
-            myLinkText: 'Hello World',
+            myLinkText: 'Hello World! This is task 16, and color for this text was added throw scss. ',
             template: './src/index.html',
             filename: 'index.html' //relative to root of the application
         })
