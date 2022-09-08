@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <FormColor />
-    <todo-list></todo-list>
+    <TodoList />
   </div>
 </template>
 

@@ -17,6 +17,7 @@
             required
             v-model="form.text"
             :state="textState"
+            class="font-size: 20px"
           ></b-form-input>
           <b-form-invalid-feedback id="text-live-feedback">
             Enter at least 3 letters
